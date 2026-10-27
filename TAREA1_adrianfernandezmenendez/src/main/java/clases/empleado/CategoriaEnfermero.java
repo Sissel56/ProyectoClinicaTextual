@@ -1,5 +1,5 @@
 package clases.empleado;
 
-public enum CategoriaEnfermeria {
+public enum CategoriaEnfermero {
 	A, B, C;
 }

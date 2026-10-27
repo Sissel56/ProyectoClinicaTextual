@@ -1,30 +1,31 @@
 package clases.clinica;
 
-public class Alergia {
-	private Long ID;
+import java.io.Serializable;
+
+public class Alergia implements Serializable {
+	private Long id;
 	private String nombre;
-	
-	//Cargas de historiales
+
+	// Cargas de historiales
 	private HistorialAlergia relacion;
-	
-	//Carga pesada Alergia:Medicamento
+
+	// Carga pesada Alergia:Medicamento
 	private Medicamento medicamento;
-	
-	//Carga ligera Alergia:Medicamento
+
+	// Carga ligera Alergia:Medicamento
 	private Long idMedicamento;
 
-	//Constructores
+	// Constructores
 	public Alergia() {
 	}
 
 	public Alergia(Long iD, String nombre) {
-		ID = iD;
+		id = iD;
 		this.nombre = nombre;
 	}
-	
-	
-	//Getters y Setters
-	
+
+	// Getters y Setters
+
 	public Long getIdMedicamento() {
 		return idMedicamento;
 	}
@@ -50,11 +51,11 @@ public class Alergia {
 	}
 
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		id = iD;
 	}
 
 	public String getNombre() {
@@ -64,13 +65,11 @@ public class Alergia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	//ToString
+
+	// ToString
 	@Override
 	public String toString() {
-		return "Alergia [ID=" + ID + ", nombre=" + nombre + "]";
+		return "Alergia [ID=" + id + ", nombre=" + nombre + "]";
 	}
-	
-	
 
 }

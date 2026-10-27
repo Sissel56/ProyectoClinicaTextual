@@ -1,22 +1,27 @@
 package clases.empleado;
 
-public class Enfermeria extends Empleado{
-	private CategoriaEnfermeria categoria;
+public class Enfermero extends Empleado {
+	private CategoriaEnfermero categoria;
 
-	public Enfermeria() {
-		
+	public Enfermero() {
+
+	}
+	
+	public Enfermero(CategoriaEnfermero categoria) {
+		super();
+		this.categoria = categoria;
 	}
 
-	public Enfermeria(Long id, String nombre, String apellidos, String telefono, String email, String nif,
+	public Enfermero(Long id, String nombre, String apellidos, String telefono, String email, String nif,
 			String direccion) {
 		super(id, nombre, apellidos, telefono, email, nif, direccion);
 	}
 
-	public CategoriaEnfermeria getCategoria() {
+	public CategoriaEnfermero getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(CategoriaEnfermeria categoria) {
+	public void setCategoria(CategoriaEnfermero categoria) {
 		this.categoria = categoria;
 	}
 
@@ -25,5 +30,5 @@ public class Enfermeria extends Empleado{
 		return "Enfermeria [categoria=" + categoria + ", id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", telefono=" + telefono + ", email=" + email + ", nif=" + nif + ", direccion=" + direccion + "]";
 	}
-	
+
 }

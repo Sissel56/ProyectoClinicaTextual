@@ -4,30 +4,29 @@ import java.time.LocalDate;
 import java.util.Set;
 
 public class Paciente {
-	private Long ID;
+	private Long id;
 	private String nombre;
 	private LocalDate fechaNac;
 	private String tlfno;
 	private String email;
 	private String direccion;
 	private String nif;
-	
-	//Carga pesada
+
+	// Carga pesada
 	private Set<Tratamiento> tratamientos;
 	private Historial historial;
-	//Carga ligera
+	// Carga ligera
 	private Set<Long> idTratamientos;
 	private Long idHistorial;
-	
-	
-	//Constructores
+
+	// Constructores
 	public Paciente() {
 
 	}
 
-	public Paciente(Long iD, String nombre, LocalDate fechaNac, String tlfno, String email, String direccion,
+	public Paciente(Long id, String nombre, LocalDate fechaNac, String tlfno, String email, String direccion,
 			String nif) {
-		this.ID = iD;
+		this.id = id;
 		this.nombre = nombre;
 		this.fechaNac = fechaNac;
 		this.tlfno = tlfno;
@@ -35,11 +34,10 @@ public class Paciente {
 		this.direccion = direccion;
 		this.nif = nif;
 	}
-	
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public String getNif() {
@@ -83,7 +81,7 @@ public class Paciente {
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		id = iD;
 	}
 
 	public String getNombre() {
@@ -133,12 +131,11 @@ public class Paciente {
 	public void setNIF(String nif) {
 		this.nif = nif;
 	}
-	
-	
-	//ToString
+
+	// ToString
 	@Override
 	public String toString() {
-		return "Paciente [ID=" + ID + ", nombre=" + nombre + ", fechaNac=" + fechaNac + ", tlfno=" + tlfno + ", email="
+		return "Paciente [ID=" + id + ", nombre=" + nombre + ", fechaNac=" + fechaNac + ", tlfno=" + tlfno + ", email="
 				+ email + ", direccion=" + direccion + ", nif=" + nif + "]";
 	}
 

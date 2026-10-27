@@ -3,20 +3,17 @@ package clases.clinica;
 import java.time.LocalDateTime;
 
 public class Revision extends Cita {
-	private String anotaciones;
-	
-	
-	//Constructores
+
+	// Constructores
 	public Revision() {
 		super();
 	}
 
-	public Revision(Long iD, LocalDateTime fechaYHora, String anotaciones) {
-		super(iD, fechaYHora);
-		this.anotaciones = anotaciones;
+	public Revision(Long id, LocalDateTime fechaYHora, String anotaciones) {
+		super(id, fechaYHora, anotaciones);
 	}
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public String getAnotaciones() {
 		return anotaciones;
 	}
@@ -25,9 +22,9 @@ public class Revision extends Cita {
 		this.anotaciones = anotaciones;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
-		return "Revision [anotaciones=" + anotaciones + ", ID=" + ID + ", fechaYHora=" + fechaYHora + "]";
+		return "Revision [anotaciones=" + anotaciones + ", ID=" + id + ", fechaYHora=" + fechaYHora + "]";
 	}
 }

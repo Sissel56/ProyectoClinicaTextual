@@ -3,41 +3,40 @@ package clases.clinica;
 import java.time.LocalDate;
 import java.util.Set;
 
-public class Tratamiento{
-	private Long ID;
+public class Tratamiento {
+	private Long id;
 	private String nombre;
 	private LocalDate fechaIni = LocalDate.now();
 	private boolean consentimiento = false;
-	
-	//Carga pesada 
+
+	// Carga pesada
 	private Paciente paciente;
 	private Set<Cita> citas;
-	
-	//Carga ligera
+
+	// Carga ligera
 	private Long idpaciente;
 	private Set<Long> idCitas;
-	
-	//Constructor
+
+	// Constructor
 	public Tratamiento() {
 
 	}
 
 	public Tratamiento(Long iD, String nombre, LocalDate fechaIni, boolean consentimiento, Long idpaciente) {
-		this.ID = iD;
+		this.id = iD;
 		this.nombre = nombre;
 		this.fechaIni = fechaIni;
 		this.consentimiento = consentimiento;
 		this.idpaciente = idpaciente;
 	}
-	
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		id = iD;
 	}
 
 	public String getNombre() {
@@ -71,7 +70,7 @@ public class Tratamiento{
 	public void setIdpaciente(Long idpaciente) {
 		this.idpaciente = idpaciente;
 	}
-	
+
 	public Paciente getPaciente() {
 		return paciente;
 	}
@@ -79,7 +78,7 @@ public class Tratamiento{
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	
+
 	public Set<Cita> getCitas() {
 		return citas;
 	}
@@ -96,10 +95,10 @@ public class Tratamiento{
 		this.idCitas = idCitas;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
-		return "Tratamiento [ID=" + ID + ", nombre=" + nombre + ", fechaIni=" + fechaIni + ", consentimiento="
+		return "Tratamiento [ID=" + id + ", nombre=" + nombre + ", fechaIni=" + fechaIni + ", consentimiento="
 				+ consentimiento;
 	}
 

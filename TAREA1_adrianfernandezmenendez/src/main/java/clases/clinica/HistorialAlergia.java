@@ -4,28 +4,27 @@ import java.util.Map;
 import java.util.Set;
 
 public class HistorialAlergia {
-	//Carga pesada
-	private Map<Historial,Set<Alergia>> historialConAlergias;
-	private Map<Alergia,Set<Historial>> alergiaConHistoriales;
-	
-	//Carga media (Ligera,Pesada)
-	private Map<Long,Set<Alergia>> idHistorialConAlergias;
-	private Map<Long,Set<Historial>> idAlergiaConHistorial;
-	
-	//Carga media (Pesada, Ligera)
-	private Map<Alergia,Set<Long>> alergiaIdHistorial;
-	private Map<Historial,Set<Long>> historialIdAlergias;
-	
-	//Carga ligera
+	// Carga pesada
+	private Map<Historial, Set<Alergia>> historialConAlergias;
+	private Map<Alergia, Set<Historial>> alergiaConHistoriales;
+
+	// Carga media (Ligera,Pesada)
+	private Map<Long, Set<Alergia>> idHistorialConAlergias;
+	private Map<Long, Set<Historial>> idAlergiaConHistorial;
+
+	// Carga media (Pesada, Ligera)
+	private Map<Alergia, Set<Long>> alergiaIdHistorial;
+	private Map<Historial, Set<Long>> historialIdAlergias;
+
+	// Carga ligera
 	private Map<Long, Set<Long>> idConId;
-	
-	//Constructor
+
+	// Constructor
 	public HistorialAlergia() {
-		
+
 	}
-	
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public Map<Historial, Set<Alergia>> getHistorialConAlergias() {
 		return historialConAlergias;
 	}
@@ -82,7 +81,4 @@ public class HistorialAlergia {
 		this.idConId = idConId;
 	}
 
-	
-	
-	
 }

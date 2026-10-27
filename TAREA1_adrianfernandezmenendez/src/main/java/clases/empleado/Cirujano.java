@@ -2,15 +2,21 @@ package clases.empleado;
 
 import java.util.Set;
 
-public class Cirujano extends Empleado{
+public class Cirujano extends Empleado {
 	private Set<Especialidad> especialidades;
 
 	public Cirujano() {
 	}
+	
+	public Cirujano(Set<Especialidad> especialidades) {
+		super();
+		this.especialidades = especialidades;
+	}
 
 	public Cirujano(Long id, String nombre, String apellidos, String telefono, String email, String nif,
-			String direccion) {
+			String direccion, Set<Especialidad> especialidades) {
 		super(id, nombre, apellidos, telefono, email, nif, direccion);
+		this.especialidades = especialidades;
 	}
 
 	public Set<Especialidad> getEspecialidades() {

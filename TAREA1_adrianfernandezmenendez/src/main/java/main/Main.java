@@ -1,65 +1,224 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import clases.sesion.GestionAlergias;
+import clases.sesion.GestionEmpleados;
+import clases.sesion.Perfil;
+import clases.sesion.Sesion;
 
 public class Main {
 	static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args) {
-		int opcion = -1;
+	private static Sesion sesion;
+
+	public static void menuInvitado(int op) {
+		System.out.println("=== MENU DE INVITADO ===");
+		System.out.println("1.- Log In");
+		System.out.println("2.- SALIR");
 		do {
-			System.out.print("========== CLÍNICA DENTAL ==========\nOpción 1: Login\nOpción 2: Salir\n");
-			try {
-				System.out.println("Introduce la opción: ");
-				opcion = sc.nextInt();
-				sc.nextLine();
-			}catch(InputMismatchException e) {
-				System.err.println("Opción tiene que ser un número");
-				sc.nextLine();
+			switch (op) {
+			case 1 -> {
+				System.out.println("Login...");
+				System.out.println("Nombre: ");
+				String user = sc.nextLine();
+				System.out.println("Contraseña: ");
+				String password = sc.nextLine();
+				Sesion.login(user, password);
 			}
-			switch(opcion){ //Menú principal
-				case 1 -> { //Opción 1 (Login)
-					System.out.println("Introduce tu nombre de usuario: ");
-					String nombre = sc.next();
-					System.out.println("Introduce tu contraseña: ");
-					String password = sc.next();
-					
-					try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/credenciales.txt"))) {
-						int contador = 1;
-						String linea;
-						while((linea = br.readLine())!= null) {
-							String[] datos = linea.split("\\|");
-							
-							if(nombre.equals(datos[0])&&password.equals(datos[1])) {
-								System.out.println("Bienvenido: "+datos[2]+"\nPerfil: "+datos[3]);
-								break;
-							}
-							else if(contador >= 6) {
-								System.out.println("No se ha encontrado al usuario en el sistema");
-							}
-							contador++;
-						}
-					}catch(FileNotFoundException e) {
-						System.err.println("No se encuentra el archivo");
-					}catch(IOException e) {
-						System.err.println("Error de lectura");
+			case 2 -> {
+				System.out.println("Saliendo...");
+			}
+			}
+		} while (op != 2);
+	}
+
+	public static void menuAdmin(int op) {
+		System.out.println("=== MENU DE ADMINISTRADOR ===");
+		System.out.println("1.- Log Out");
+		System.out.println("2.- Añadir Empleado");
+		System.out.println("3.- Añadir Alergia");
+		System.out.println("4.- Editar Alergia");
+		System.out.println("5.- Ver Alergia");
+		System.out.println("6.- Listar Alergias Registradas");
+		GestionAlergias.leerTodasAlergias();
+		System.out.println("7.- SALIR");
+		do {
+			switch (op) {
+			case 1 -> {
+				System.out.println("Logout...");
+				Sesion.logout();
+			}
+			case 2 -> {
+				System.out.println("Añadir empleado...");
+				GestionEmpleados.anadirEmpleado(sc);
+			}
+			case 3 -> {
+				System.out.println("Añadir Alergia...");
+				GestionAlergias.anadirAlergia(sc);
+			}
+			case 4 -> {
+				System.out.println("Editar Alergia...");
+				GestionAlergias.editarAlergia(sc);
+			}
+			case 5 -> {
+				System.out.println("Ver Alergia...");
+				GestionAlergias.verAlergia(sc);
+			}
+			case 6 -> {
+				System.out.println("Listar Alergias Registradas...");
+				GestionAlergias.leerTodasAlergias();
+			}
+			case 7 -> {
+				System.out.println("Saliendo...");
+			}
+			}
+		} while (op != 7);
+	}
+
+	public static void menuSecretariado(int op) {
+		System.out.println("=== MENU DE SECRETARIADO ===");
+		System.out.println("1.- Log Out");
+		Sesion.logout();
+		System.out.println("2.- Añadir Empleado");
+		GestionEmpleados.anadirEmpleado(sc);
+		System.out.println("3.- SALIR");
+		do {
+			switch (op) {
+			case 1 -> {
+				System.out.println("Logout...");
+				Sesion.logout();
+			}
+			case 2 -> {
+				System.out.println("Añadir empleado...");
+				GestionEmpleados.anadirEmpleado(sc);
+			}
+			case 3 -> {
+				System.out.println("Saliendo...");
+			}
+			}
+		} while (op != 3);
+	}
+
+	public static void menuEnfermeria(int op) {
+		System.out.println("=== MENU DE ENFERMERIA ===");
+		System.out.println("1.- Log Out");
+		Sesion.logout();
+		System.out.println("2.- Añadir Alergia");
+		GestionAlergias.anadirAlergia(sc);
+		System.out.println("3.- Editar Alergia");
+		GestionAlergias.editarAlergia(sc);
+		System.out.println("4.- Ver Alergia");
+		GestionAlergias.verAlergia(sc);
+		System.out.println("5.- Listar Alergias Registradas");
+		GestionAlergias.leerTodasAlergias();
+		System.out.println("6.- SALIR");
+		do {
+			switch (op) {
+			case 1 -> {
+				System.out.println("Logout...");
+				Sesion.logout();
+			}
+			case 2 -> {
+				System.out.println("Añadir Alergia...");
+				GestionAlergias.anadirAlergia(sc);
+			}
+			case 3 -> {
+				System.out.println("Editar Alergia...");
+				GestionAlergias.editarAlergia(sc);
+			}
+			case 4 -> {
+				System.out.println("Ver Alergia...");
+				GestionAlergias.verAlergia(sc);
+			}
+			case 5 -> {
+				System.out.println("Listar Alergias Registradas...");
+				GestionAlergias.leerTodasAlergias();
+			}
+			case 6 -> {
+				System.out.println("Saliendo...");
+			}
+			}
+		} while (op != 6);
+	}
+
+	public static void main(String[] args) {
+		System.out.println("INICIO");
+		int opcion = -1;
+		try {
+			do {
+			if(sesion == null) {
+				System.out.println("Bienvenido Invitado");
+				menuInvitado(opcion);
+			} else {
+				if(sesion.getPerfil().equals(Perfil.ADMINISTRADOR)) {
+					System.out.println("Bienvenido "+sesion.getNombreReal());
+					System.out.println("1. Menu admin\n2. Salir");
+					switch(opcion){
+					case 1->{
+						menuAdmin(opcion);
+					}
+					case 2->{
+						System.out.println("Saliendo...");
+					}
+					default ->{
+						System.out.println("Eso no es una opción");
+					}
 					}
 				}
-				
-				case 2 -> { //Opción 2
-					System.out.println("Saliendo del programa...");
+				if(sesion.getPerfil().equals(Perfil.SECRETARIADO)) {
+					System.out.println("Bienvenido "+sesion.getNombreReal());
+					System.out.println("1. Menu secretario\n2. Salir");
+					switch(opcion){
+					case 1->{
+						menuSecretariado(opcion);
+					}
+					case 2->{
+						System.out.println("Saliendo...");
+					}
+					default ->{
+						System.out.println("Eso no es una opción");
+					}
+					}
 				}
-				default -> { //Default
-					System.out.println("Eso no es una opción");
+				if(sesion.getPerfil().equals(Perfil.ENFERMERIA)) {
+					System.out.println("Bienvenido "+sesion.getNombreReal());
+					System.out.println("1. Menu enfermeria\n2. Salir");
+					switch(opcion){
+					case 1->{
+						menuEnfermeria(opcion);
+					}
+					case 2->{
+						System.out.println("Saliendo...");
+					}
+					default ->{
+						System.out.println("Eso no es una opción");
+					}
+					}
 				}
-				
+				if(sesion.getPerfil().equals(Perfil.CIRUJANO)) {
+					System.out.println("Bienvenido "+sesion.getNombreReal());
+					System.out.println("1. Logout\n2. Salir");
+					switch(opcion){
+					case 1->{
+						Sesion.logout();
+					}
+					case 2->{
+						System.out.println("Saliendo...");
+					}
+					default ->{
+						System.out.println("Eso no es una opción");
+					}
+					}
+				}
 			}
-		}while(opcion != 2);
-		
+			}while(opcion!=2);
+			
+		} catch (IllegalStateException e) {
+			System.err.println("ERROR: " + e.getMessage());
+		}
+
+		System.out.println("FIN");
+
 	}
 
 }

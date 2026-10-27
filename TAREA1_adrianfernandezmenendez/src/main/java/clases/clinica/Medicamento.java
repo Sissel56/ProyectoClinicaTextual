@@ -1,35 +1,41 @@
 package clases.clinica;
 
 public class Medicamento {
-	private Long ID;
+	private Long id;
 	private String nombre;
 	private String principioActivo;
 	private float dosisMax;
-	
-	//Carga pesada
+
+	// Carga pesada
 	private Alergia alergia;
-	
-	//Carga ligera
+
+	// Carga ligera
 	private Long idAlergia;
-	
+
 	public Medicamento() {
 	}
 
-	public Medicamento(Long iD, String nombre, String principioActivo, float dosisMax) {
-		ID = iD;
+	public Medicamento(String nombre, String principioActivo, float dosisMax) {
 		this.nombre = nombre;
 		this.principioActivo = principioActivo;
 		this.dosisMax = dosisMax;
 	}
-	
-	//Getters y Setters
+
+	public Medicamento(Long iD, String nombre, String principioActivo, float dosisMax) {
+		id = iD;
+		this.nombre = nombre;
+		this.principioActivo = principioActivo;
+		this.dosisMax = dosisMax;
+	}
+
+	// Getters y Setters
 
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		id = iD;
 	}
 
 	public String getNombre() {
@@ -55,7 +61,7 @@ public class Medicamento {
 	public void setDosisMax(float dosisMax) {
 		this.dosisMax = dosisMax;
 	}
-	
+
 	public Alergia getAlergia() {
 		return alergia;
 	}
@@ -71,12 +77,12 @@ public class Medicamento {
 	public void setIdAlergia(Long idAlergia) {
 		this.idAlergia = idAlergia;
 	}
-	
-	//ToString
+
+	// ToString
 
 	@Override
 	public String toString() {
-		return "Medicamento [ID=" + ID + ", nombre=" + nombre + ", principioActivo=" + principioActivo + ", dosisMax="
+		return "Medicamento [ID=" + id + ", nombre=" + nombre + ", principioActivo=" + principioActivo + ", dosisMax="
 				+ dosisMax + "]";
 	}
 

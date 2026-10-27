@@ -1,36 +1,38 @@
 package clases.clinica;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Cita {
-	protected Long ID;
+	protected Long id;
 	protected LocalDateTime fechaYHora;
-	
-	//Carga pesada
+	protected String anotaciones;
+
+	// Carga pesada
 	protected Tratamiento tratamiento;
-	
-	//Carga ligera
+
+	// Carga ligera
 	protected Long idTratamiento;
-	
-	
-	//Constructores
+
+	// Constructores
 	public Cita() {
 	}
 
-	public Cita(Long iD, LocalDateTime fechaYHora) {
+	public Cita(Long iD, LocalDateTime fechaYHora, String anotaciones) {
 		super();
-		ID = iD;
+		fechaYHora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+		id = iD;
+		this.anotaciones = anotaciones;
 		this.fechaYHora = fechaYHora;
 	}
-	
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		id = iD;
 	}
 
 	public LocalDateTime getFechaYHora() {
@@ -38,6 +40,7 @@ public abstract class Cita {
 	}
 
 	public void setFechaYHora(LocalDateTime fechaYHora) {
+		fechaYHora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
 		this.fechaYHora = fechaYHora;
 	}
 
@@ -56,10 +59,20 @@ public abstract class Cita {
 	public void setIdTratamiento(Long idTratamiento) {
 		this.idTratamiento = idTratamiento;
 	}
-	
-	//ToString
+
+	public String getAnotaciones() {
+		return anotaciones;
+	}
+
+	public void setAnotaciones(String anotaciones) {
+		this.anotaciones = anotaciones;
+	}
+
+	// ToString
 	@Override
 	public String toString() {
-		return "Cita [ID=" + ID + ", fechaYHora=" + fechaYHora + "]";
+		return "Cita [ID=" + id + ", fechaYHora=" + fechaYHora + ", anotaciones=" + anotaciones + ", tratamiento="
+				+ tratamiento + ", idTratamiento=" + idTratamiento + "]";
 	}
+
 }

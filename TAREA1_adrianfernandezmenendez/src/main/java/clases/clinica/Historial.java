@@ -1,36 +1,35 @@
 package clases.clinica;
 
 public class Historial {
-	private Long ID;
+	private Long id;
 	private String desc;
-	
-	//Cargas de alergias
+
+	// Cargas de alergias
 	private HistorialAlergia relacion;
 
-	//Carga pesada Paciente
+	// Carga pesada Paciente
 	private Paciente paciente;
-	
-	//Carga ligera Paciente
+
+	// Carga ligera Paciente
 	private Long idPaciente;
-	
-	
-	//Constructors
+
+	// Constructors
 	public Historial() {
 	}
 
 	public Historial(Long ID, String desc) {
-		this.ID = ID;
+		this.id = ID;
 		this.desc = desc;
 	}
-	
-	//Getters y Setters
-	
+
+	// Getters y Setters
+
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		id = iD;
 	}
 
 	public HistorialAlergia getRelacion() {
@@ -48,7 +47,7 @@ public class Historial {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	
+
 	public Paciente getPaciente() {
 		return paciente;
 	}
@@ -65,10 +64,10 @@ public class Historial {
 		this.idPaciente = idPaciente;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
-		return "Historial [ID=" + ID + ", desc=" + desc + "]";
+		return "Historial [ID=" + id + ", desc=" + desc + "]";
 	}
 
 }

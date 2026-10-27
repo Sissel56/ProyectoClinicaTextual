@@ -6,6 +6,13 @@ public class Secretariado extends Empleado{
 	public Secretariado() {
 	}
 
+	
+	public Secretariado(int numanos) {
+		super();
+		this.numanos = numanos;
+	}
+
+
 	public Secretariado(Long id, String nombre, String apellidos, String telefono, String email, String nif,
 			String direccion) {
 		super(id, nombre, apellidos, telefono, email, nif, direccion);
@@ -24,5 +31,4 @@ public class Secretariado extends Empleado{
 		return "Secretariado [numanos=" + numanos + ", id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", telefono=" + telefono + ", email=" + email + ", nif=" + nif + ", direccion=" + direccion + "]";
 	}
-	
 }
